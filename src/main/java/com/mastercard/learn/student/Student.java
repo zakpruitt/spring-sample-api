@@ -1,5 +1,7 @@
 package com.mastercard.learn.student;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
@@ -20,6 +22,7 @@ public class Student {
     private Long id;
     private String name;
     private String email;
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
     private LocalDate dob;
     @Transient // means age will be calculated -- not added straight in.
     private Integer age;
