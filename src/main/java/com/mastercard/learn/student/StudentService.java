@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.swing.*;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.time.Month;
@@ -56,7 +57,7 @@ public class StudentService {
             if (studentOptional.isPresent()) {
                 throw new IllegalStateException("email is already in use.");
             }
-            student.setName(name);
+            student.setEmail(name);
         }
 
     }

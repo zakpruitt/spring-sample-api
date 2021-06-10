@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(path = "api/v1/student")
@@ -33,8 +34,7 @@ public class StudentController {
 
     @PutMapping(path = "{studentId}")
     public void updateStudent(@PathVariable("studentId") Long studentId,
-                              @RequestBody(required = false) String name,
-                              @RequestBody(required = false) String email) {
-        studentService.updateStudent(studentId, name, email);
+                              @RequestBody(required = false) Map<String, String> body) {
+        studentService.updateStudent(studentId, body.get("name"), body.get("email"));
     }
 }
